@@ -1,24 +1,10 @@
-version: "3.9"
-   
+version: '3.1'
 services:
   db:
     image: postgres
-    volumes:
-      - ./data/db:/var/lib/postgresql/data
+    restart: always
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-  web:
-    build: python arcata/manage.py migrate
-    command: python arcata/manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
     ports:
-      - "8000:8000"
-    environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    depends_on:
-      - db
+      - "5432:5432"
