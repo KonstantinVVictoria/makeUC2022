@@ -10,8 +10,8 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
   web:
-    build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    build: python arcata/manage.py migrate
+    command: python arcata/manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/code
     ports:
