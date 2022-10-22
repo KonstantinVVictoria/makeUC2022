@@ -1,0 +1,15 @@
+-- Your SQL goes here
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE plants (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    water_frequency INTEGER NOT NULL,
+    notes VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
