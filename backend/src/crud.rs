@@ -85,10 +85,10 @@ pub async fn delete_plant(conn: crate::DbConn, id: i32) -> Json<Plant> {
 /// mount point:
 ///     /api/user/create
 #[post("/", data = "<user>")]
-pub async fn create_user(conn: crate::DbConn, user: Json<User>) -> Json<User> {
+pub async fn create_user(conn: crate::DbConn, user: Json<NewUser>) -> Json<User> {
     conn.run(move |c| {
         diesel::insert_into(users::table)
-            .values(&user.into_inner())
+            .values(user.into_inner())
             .get_result(c)
     })
     .await

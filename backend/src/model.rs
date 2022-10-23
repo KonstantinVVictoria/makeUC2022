@@ -11,6 +11,13 @@ pub struct User {
     pub created_at: chrono::NaiveDateTime,
 }
 
+#[derive(Insertable, Deserialize)]
+#[table_name = "users"]
+pub struct NewUser {
+    pub name: String,
+    pub email: String,
+}
+
 #[derive(Insertable, AsChangeset, Deserialize, Serialize, Queryable)]
 #[table_name = "plants"]
 pub struct Plant {
