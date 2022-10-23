@@ -1,0 +1,37 @@
+.Title{
+   margin: 0px;
+}
+.NavBar{ 
+    display: flex;
+    position: sticky;
+    height: 50px;
+    width: 100vw;
+    top: 0%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+}
+.Icon{
+    position:relative;
+    height: 50px;
+    width: 50px;
+    left: 5px;
+}
+.NavItems{
+    display: flex;
+    gap: 25px;
+    position:absolute;
+    right: 25px;
+   
+}
+.NavItem {
+    font-size: 2rem;
+    font-weight: 800;
+}
+.WebTitle{
+    display: flex;
+    position: absolute;
+    left: 25px;
+    justify-content: center;
+    align-items: center;
+}
