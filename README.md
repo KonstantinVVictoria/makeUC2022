@@ -1,42 +1,109 @@
-<<<<<<< HEAD
+# Arcata 
+<img alt="APM" src="https://img.shields.io/apm/l/vim-mode"> <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/konstantinvvictoria/makeUC2022/Rust"> 
 
-# Make UC Submission
+Scaling a garden can be tricky. Many crops tend to thrive under conditions unique to them; some may require certain soil nutrients, or to be watered more or less frequently than others. Arcata is a garden management solution that provides a minimal interface for managing your plants. By integrating with 3rd party APIs, Arcata provides users with neat facts on the plants in their garden, and bundles them in a clean visualization so users can show off their gardens.
 
-A brief description of what this project does and who it's for
 
-=======
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Stack
 
-## Getting Started
+**Client:** React, NextJS
 
-First, run the development server:
+**Server:** Rust, Rocket, Diesel, PostgreSQL
+
+
+# Run Locally
+
+### Dependencies (see setup below)
+* Docker
+* Rust
+  * diesel_cli
+
+---
+Clone the project
 
 ```bash
-npm run dev
-# or
-yarn dev
+git clone https://github.com/konstantinvvictoria/makeUC2022
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Go to the project directory
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```bash
+cd makeUC2022
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+With the __Docker daemon running__, start the PostgreSQL instance
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+docker-compose up
+```
 
-## Learn More
+Visit [rustup.sh](https://rustup.sh) to download Rust if you don't already have it installed, then install the diesel-cli to run our database migrations:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+cargo install diesel_cli@1.4.1 --no-default-features --features postgres
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Run initial DB migrations (from root directory)
+```bash
+diesel migration run --database-url postgresql://postgres:example@localhost:5432/postgres
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Start the backend API
 
-## Deploy on Vercel
+```bash
+cd backend/ && cargo watch -x run
+```
+# API Reference
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+See the [SQL Schemas](https://github.com/KonstantinVVictoria/makeUC2022/blob/main/backend/migrations/2022-10-23-074500_init/up.sql) to see the data format these endpoints accept
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
->>>>>>> 1fc432409959a85a7f3113732a2d8ca71564d79d
+## User
+#### Create user
+
+```sh
+POST /api/user
+```
+
+
+#### Read user
+
+```sh
+GET /api/user/<uid>
+```
+
+#### Update user
+```sh
+PUT /api/users/<uid>
+```
+
+#### Delete user
+```sh
+DELETE /api/user/<uid>
+```
+
+## Plant
+#### Create plant
+
+```sh
+POST /api/plant
+```
+
+#### Read all plants belonging to a user
+```sh
+GET /api/plants/<uid>
+```
+
+### Read a plant belonging to a user
+```sh
+GET /api/plant/<uid><id>
+```
+
+#### Update plant belonging to user
+```sh
+PUT /api/plant/<uid><id>
+```
+
+#### Delete plant belonging to user
+```sh
+DELETE /api/plant/<uid><id>
+```

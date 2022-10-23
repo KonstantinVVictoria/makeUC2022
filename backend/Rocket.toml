@@ -1,0 +1,3 @@
+# ./Rocket.toml
+[default.databases.plants_db]
+url = "postgres://postgres:example@localhost:5432/postgres"
