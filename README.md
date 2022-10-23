@@ -79,6 +79,11 @@ DELETE /api/user/<uid>
 GET /api/plants/<uid>
 ```
 
+### Read a plant belonging to a user
+```sh
+GET /api/plant/<uid><id>
+```
+
 #### Update plant belonging to user
 ```sh
 PUT /api/plant/<uid><id>

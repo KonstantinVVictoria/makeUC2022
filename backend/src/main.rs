@@ -25,10 +25,25 @@ fn rocket() -> _ {
         // INDEX
         .mount("/", routes![index])
         // /api/plant
-        .mount("/api/plant", routes![crud::create_plant, crud::read_plant, crud::update_plant, crud::delete_plant])
-        // /api/plants - all plants belonging to a uid
-        .mount("/api/plants", routes![crud::read_all_plants])
+        .mount(
+            "/api/plant",
+            routes![
+                crud::create_plant,
+                crud::read_plant,
+                crud::read_all_plants,
+                crud::update_plant,
+                crud::delete_plant
+            ],
+        )
         // /api/users
-        .mount("/api/users", routes![crud::create_user, crud::read_user, crud::update_user, crud::delete_user])
+        .mount(
+            "/api/users",
+            routes![
+                crud::create_user,
+                crud::read_user,
+                crud::update_user,
+                crud::delete_user
+            ],
+        )
         .attach(DbConn::fairing())
 }
