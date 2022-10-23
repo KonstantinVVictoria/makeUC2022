@@ -1,7 +1,8 @@
 import styles from "./Login.module.css"
 import { useState } from "react"
 import themes from "../../styles/themes"
-import { createUserWithEmailAndPassword , getAuth} from "firebase/auth"
+import {createUserWithEmailAndPassword, getAuth} from "firebase/auth"
+import { useRouter } from 'next/router'
 export default function Login() {
     const [state, changeState] = useState({signUp: false})
     return <div className={styles.Login}>
@@ -32,13 +33,16 @@ function Input({field, label, password}) {
 }
 
 function Button({signUp}){
-
-    return <button onClick={async ()=>{
+    const router = useRouter()
+    return <button onClick={async (e)=>{
+        e.preventDefault()
         const email = document.getElementById("email").value
         const pass = document.getElementById("pass").value
     
         if(email && pass) {
-           await createUserWithEmailAndPassword(getAuth(), email, pass).then(user=>console.log(user))
+           await createUserWithEmailAndPassword(getAuth(), email, pass).then(user=>{
+                router.push("/dashboard")
+           })
         }
     }}className={styles.Button}>{!signUp?"Sign Up":"Login"}</button>
 }

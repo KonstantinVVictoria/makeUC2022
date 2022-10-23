@@ -8,7 +8,7 @@ export default async function generatePdf(req, res) {
   
       const page = await context.newPage();
   
-      await page.goto(`https://plants.usda.gov/home/plantProfile?symbol=${req.body}`);
+      await page.goto(`https://plants.usda.gov/home/plantProfile?symbol=${"ABBA"}`);
       await page.waitForSelector("img[_ngcontent-c0]")
       let data = await page.evaluate(()=>{
         let data = {}
@@ -30,7 +30,7 @@ export default async function generatePdf(req, res) {
       let response = {...JSON.parse(data), ...JSON.parse(stats)}
       await browser.close();
   
-      return res.status(200).json(response);
+      return res.status(200).json([response]);
     } catch (error) {
       return res.status(error.statusCode || 500).json({ error: error.message });
     }
