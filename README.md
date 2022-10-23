@@ -1,7 +1,7 @@
 # Arcata 
 <img alt="APM" src="https://img.shields.io/apm/l/vim-mode"> <img alt="GitHub Workflow Status" src="https://img.shields.io/github/workflow/status/konstantinvvictoria/makeUC2022/Rust"> 
 
-Scaling a garden can be tricky. Many crops tend to thrive under conditions unique to them; some may require certain soil nutrients, or to be watered more or less frequently than others. Arcata is a garden management solution that provides a minimal interface for managing your plants. By integrating with 3rd party APIs, Arcata provides users with neat facts on the plants in their garden, and bundles them in a clean visualization so users can show off their gardens.
+Scaling a garden can be tricky. Many crops tend to thrive under conditions unique to them; some may require certain soil nutrients, or to be watered more or less frequently than others. Arcata is a garden management solution that provides a minimal interface for managing your plants. By integrating with 3rd party APIs and external datasets, Arcata provides users with neat facts on the plants in their garden, and bundles them in a clean visualization so users can show off their gardens.
 
 
 # Stack
