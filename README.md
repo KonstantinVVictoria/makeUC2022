@@ -55,7 +55,7 @@ cd backend/ && cargo watch -x run
 ```
 # API Reference
 
-See the [SQL Schemas](https://github.com/KonstantinVVictoria/makeUC2022/blob/dev/backend/migrations/2022-10-23-015705_init/up.sql) to see the data format these endpoints accept
+See the [SQL Schemas](https://github.com/KonstantinVVictoria/makeUC2022/blob/main/backend/migrations/2022-10-23-074500_init/up.sql) to see the data format these endpoints accept
 
 ## User
 #### Create user
