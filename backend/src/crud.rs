@@ -1,3 +1,4 @@
+use crate::diesel::ExpressionMethods;
 use crate::model::*;
 use crate::schema::*;
 use diesel::{QueryDsl, RunQueryDsl};
@@ -27,6 +28,16 @@ pub async fn read_plant(conn: crate::DbConn, id: i32) -> Json<Plant> {
         .await
         .map(Json)
         .expect("Failed to get plant by id")
+}
+
+/// GET
+/// Read all plants belonging to a uid
+#[get("/<uid>")]
+pub async fn read_plants(conn: crate::DbConn, uid: i32) -> Json<Vec<Plant>> {
+    conn.run(move |c| plants::table.filter(plants::uid.eq(uid)).load::<Plant>(c))
+        .await
+        .map(Json)
+        .expect("Failed to get plants by uid")
 }
 
 /// UPDATE plant
