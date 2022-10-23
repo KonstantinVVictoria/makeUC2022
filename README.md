@@ -30,6 +30,13 @@ Start the PostgreSQL instance
 ```bash
 docker-compose up
 ```
+
+Visit [rustup.sh](https://rustup.sh) to download Rust if you don't already have it installed, then install the diesel-cli to run our database migrations:
+
+```bash
+cargo install diesel_cli@1.4.1 --no-default-features --features postgres
+```
+
 Run initial DB migrations
 ```bash
 diesel migration run --database-url postgresql://postgres:example@localhost:5432/postgres
