@@ -25,7 +25,7 @@ Go to the project directory
 cd makeUC2022
 ```
 
-Start the PostgreSQL instance
+With the __Docker daemon running__, start the PostgreSQL instance
 
 ```bash
 docker-compose up
@@ -37,7 +37,7 @@ Visit [rustup.sh](https://rustup.sh) to download Rust if you don't already have 
 cargo install diesel_cli@1.4.1 --no-default-features --features postgres
 ```
 
-Run initial DB migrations
+Run initial DB migrations (from root directory)
 ```bash
 diesel migration run --database-url postgresql://postgres:example@localhost:5432/postgres
 ```
