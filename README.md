@@ -1,25 +1,10 @@
-## Dev setup
-First, we'll want to start the Docker Postgres image
+# MakeUC submission
+
+### Run the DB
 ```sh
 docker compose up
 ```
-
-Export the url as an environment variable
+### Run the HTTP API
 ```sh
-export DB_URL=postgresql://postgres:example@localhost:5432/postgres
-```
-
-Run initial migration (if necessary)
-```sh
-diesel migrations run --database-url $DB_URL
-```
-
-View schemas
-```sh
-diesel print-schema --database-url $DB_URL
-```
-
-Start the HTTP server
-```sh
-cargo watch -x run
+cd backend/ && cargo run --release
 ```
