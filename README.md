@@ -55,6 +55,25 @@ cd backend/ && cargo watch -x run
 ```
 # API Reference
 
-See the [SQL Schemas](https://github.com/KonstantinVVictoria/makeUC2022/blob/main/backend/migrations/2022-10-23-074500_init/up.sql) to see the data format these endpoints accept
+See the [SQL Schemas](https://github.com/KonstantinVVictoria/makeUC2022/blob/main/backend/migrations/2022-10-23-074500_init/up.sql) to see the data format PostgreSQL format
 
 <img src="doc/routes.png">
+
+### POST Schemas
+```rust
+#[derive(Insertable, Deserialize)]
+#[table_name = "users"]
+pub struct NewUser {
+    pub uid: String,
+    pub username: String,
+}
+
+#[derive(Insertable, Deserialize)]
+#[table_name = "plants"]
+pub struct NewPlant {
+    pub uid: String,
+    pub symbol: String,
+    pub sci_name: String,
+    pub gener_name: String,
+}
+```
