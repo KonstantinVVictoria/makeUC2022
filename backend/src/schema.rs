@@ -1,12 +1,11 @@
-use diesel::{allow_tables_to_appear_in_same_query, table};
-
 table! {
     plants (id) {
         id -> Int4,
         name -> Varchar,
-        water_frequency -> Int4,
-        notes -> Varchar,
+        watering_freq -> Int4,
+        uid -> Int4,
         created_at -> Timestamp,
+        updated_at -> Timestamp,
     }
 }
 
@@ -19,4 +18,7 @@ table! {
     }
 }
 
-allow_tables_to_appear_in_same_query!(plants, users,);
+allow_tables_to_appear_in_same_query!(
+    plants,
+    users,
+);
