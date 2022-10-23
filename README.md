@@ -16,23 +16,23 @@ Scaling a garden can be tricky. Many crops tend to thrive under conditions uniqu
 Clone the project
 
 ```bash
-  git clone https://github.com/konstantinvvictoria/makeUC2022
+git clone https://github.com/konstantinvvictoria/makeUC2022
 ```
 
 Go to the project directory
 
 ```bash
-  cd makeUC2022
+cd makeUC2022
 ```
 
 Start the PostgreSQL instance
 
 ```bash
-  docker-compose up
+docker-compose up
 ```
 Run initial DB migrations
 ```bash
-  diesel migration run --database-url postgresql://postgres:example@localhost:5432/postgres
+diesel migration run --database-url postgresql://postgres:example@localhost:5432/postgres
 ```
 
 Start the backend API
@@ -48,14 +48,14 @@ See the [SQL Schemas](https://github.com/KonstantinVVictoria/makeUC2022/blob/dev
 #### Create user
 
 ```sh
-  POST /api/user
+POST /api/user
 ```
 
 
 #### Read user
 
 ```sh
-  GET /api/user/<uid>
+GET /api/user/<uid>
 ```
 
 #### Update user
@@ -72,7 +72,7 @@ DELETE /api/user/<uid>
 #### Create plant
 
 ```sh
-  POST /api/plant
+POST /api/plant
 ```
 
 #### Read all plants belonging to a user
