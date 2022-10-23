@@ -24,7 +24,15 @@ pub struct Plant {
     pub id: i32,
     pub name: String,
     pub watering_freq: i32,
-    pub uid: i32,
+    pub uid: String,
     pub created_at: chrono::NaiveDateTime,
     pub updated_at: chrono::NaiveDateTime,
+}
+
+#[derive(Insertable, Deserialize)]
+#[table_name = "plants"]
+pub struct NewPlant {
+    pub name: String,
+    pub watering_freq: i32,
+    pub uid: String,
 }

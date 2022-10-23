@@ -13,10 +13,10 @@ use rocket::serde::json::Json;
 /// mount point:
 ///   /api/plants/<plant>
 #[post("/", data = "<plant>")]
-pub async fn create_plant(conn: crate::DbConn, plant: Json<Plant>) -> Json<Plant> {
+pub async fn create_plant(conn: crate::DbConn, plant: Json<NewPlant>) -> Json<Plant> {
     conn.run(move |c| {
         diesel::insert_into(plants::table)
-            .values(&plant.into_inner())
+            .values(plant.into_inner())
             .get_result(c)
     })
     .await
@@ -41,7 +41,7 @@ pub async fn read_plant(conn: crate::DbConn, id: i32) -> Json<Plant> {
 /// mount point:
 ///     /api/plants/<uid>
 #[get("/<uid>")]
-pub async fn read_all_plants(conn: crate::DbConn, uid: i32) -> Json<Vec<Plant>> {
+pub async fn read_all_plants(conn: crate::DbConn, uid: String) -> Json<Vec<Plant>> {
     conn.run(move |c| plants::table.filter(plants::uid.eq(uid)).load::<Plant>(c))
         .await
         .map(Json)
