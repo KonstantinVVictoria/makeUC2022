@@ -27,10 +27,14 @@ Go to the project directory
   cd makeUC2022
 ```
 
-Start the PostgreSQL instance
-
+Start the PostgreSQL instance and run initial migrations:
+In one terminal, start the PostgreSQL container:
 ```bash
-  docker-compose up
+  docker-compose up 
+```
+In another, run migrations:
+```bash
+diesel migration run --database-url postgresql://postgres:example@localhost:5432/postgres
 ```
 
 Start the backend API

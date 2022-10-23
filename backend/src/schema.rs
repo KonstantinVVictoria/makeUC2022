@@ -1,9 +1,10 @@
 table! {
     plants (id) {
         id -> Int4,
-        name -> Varchar,
-        watering_freq -> Int4,
-        uid -> VarChar,
+        uid -> Varchar,
+        symbol -> Varchar,
+        sci_name -> Varchar,
+        gener_name -> Varchar,
         created_at -> Timestamp,
         updated_at -> Timestamp,
     }
@@ -12,10 +13,14 @@ table! {
 table! {
     users (id) {
         id -> Int4,
-        name -> Varchar,
-        email -> Varchar,
+        uid -> Varchar,
+        username -> Varchar,
         created_at -> Timestamp,
+        updated_at -> Timestamp,
     }
 }
 
-allow_tables_to_appear_in_same_query!(plants, users,);
+allow_tables_to_appear_in_same_query!(
+    plants,
+    users,
+);
