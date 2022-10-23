@@ -22,10 +22,13 @@ fn index() -> &'static str {
 #[launch]
 fn rocket() -> _ {
     rocket::build()
+        // INDEX
         .mount("/", routes![index])
-        .mount("/api/create", routes![crud::create_plant])
-        .mount("/api/read", routes![crud::read_plant])
-        .mount("/api/update", routes![crud::update_plant])
-        .mount("/api/delete", routes![crud::delete_plant])
+        // /api/plant
+        .mount("/api/plant", routes![crud::create_plant, crud::read_plant, crud::update_plant, crud::delete_plant])
+        // /api/plants - all plants belonging to a uid
+        .mount("/api/plants", routes![crud::read_all_plants])
+        // /api/users
+        .mount("/api/users", routes![crud::create_user, crud::read_user, crud::update_user, crud::delete_user])
         .attach(DbConn::fairing())
 }
