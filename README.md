@@ -32,6 +32,10 @@ Start the PostgreSQL instance
 ```bash
   docker-compose up
 ```
+Run initial DB migrations
+```bash
+  diesel migration run --database-url postgresql://postgres:example@localhost:5432/postgres
+```
 
 Start the backend API
 
