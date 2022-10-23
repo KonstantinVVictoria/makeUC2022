@@ -13,6 +13,12 @@ Scaling a garden can be tricky. Many crops tend to thrive under conditions uniqu
 
 # Run Locally
 
+### Dependencies (see setup below)
+* Docker
+* Rust
+  * diesel_cli
+
+---
 Clone the project
 
 ```bash
