@@ -1,9 +1,6 @@
-
 # Arcata
 
 Scaling a garden can be tricky. Many crops tend to thrive under conditions unique to them; some may require certain soil nutrients, or to be watered more or less frequently than others. In an effort to make home-gardens more scalable, Arcata provides users with a minimal dashboard to track and monitor each of their crops individually. Users can set unique watering frequencies for each of their plants, and Arcata will remind them when it's time to water them!
-
-
 
 
 # Stack
@@ -57,17 +54,17 @@ See the [SQL Schemas](https://github.com/KonstantinVVictoria/makeUC2022/blob/dev
 #### Read user
 
 ```sh
-  GET /api/user/<id>
+  GET /api/user/<uid>
 ```
 
 #### Update user
 ```sh
-PUT /api/users/<id>
+PUT /api/users/<uid>
 ```
 
 #### Delete user
 ```sh
-DELETE /api/user/<id>
+DELETE /api/user/<uid>
 ```
 
 ## Plant
@@ -77,20 +74,17 @@ DELETE /api/user/<id>
   POST /api/plant
 ```
 
-
-#### Read user
-
+#### Read all plants belonging to a user
 ```sh
-  GET /api/plant/<id>
+GET /api/plants/<uid>
 ```
 
-#### Update user
+#### Update plant belonging to user
 ```sh
-PUT /api/plant/<id>
+PUT /api/plant/<uid><id>
 ```
 
-#### Delete user
+#### Delete plant belonging to user
 ```sh
-DELETE /api/plant/<id>
+DELETE /api/plant/<uid><id>
 ```
-
