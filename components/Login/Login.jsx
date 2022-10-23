@@ -1,6 +1,7 @@
 import styles from "./Login.module.css"
 import { useState } from "react"
 import themes from "../../styles/themes"
+import { signInWithEmailAndPassword , getAuth} from "../../firebase/firebase"
 export default function Login() {
     const [state, changeState] = useState({signUp: false})
     return <div className={styles.Login}>
@@ -14,7 +15,7 @@ export default function Login() {
                 <Input field="pass" label="Password"/>
             </div>
             <div className={styles.Section3}>
-                <Button/>
+                <Button />
             </div>
         </div>
 } 
@@ -29,5 +30,12 @@ function Input({field, label}) {
 }
 
 function Button({signUp}){
-    return <button className={styles.Button}>{!signUp?"Sign Up":"Login"}</button>
+
+    return <button onClick={()=>{
+        const email = document.getElementById("email")
+        const pass = document.getElementById("pass")
+        if(user && pass) {
+            signInWithEmailAndPassword(getAuth(), user, pass)
+        }
+    }}className={styles.Button}>{!signUp?"Sign Up":"Login"}</button>
 }
