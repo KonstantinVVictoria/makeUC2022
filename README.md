@@ -45,48 +45,48 @@ See the [SQL Schemas](https://github.com/KonstantinVVictoria/makeUC2022/blob/dev
 ## User
 #### Create user
 
-```http
+```sh
   POST /api/user
 ```
 
 
 #### Read user
 
-```http
+```sh
   GET /api/user/<id>
 ```
 
 #### Update user
-```http
+```sh
 PUT /api/users/<id>
 ```
 
 #### Delete user
-```http
+```sh
 DELETE /api/user/<id>
 ```
 
 ## Plant
 #### Create plant
 
-```http
+```sh
   POST /api/plant
 ```
 
 
 #### Read user
 
-```http
+```sh
   GET /api/plant/<id>
 ```
 
 #### Update user
-```http
+```sh
 PUT /api/plant/<id>
 ```
 
 #### Delete user
-```http
+```sh
 DELETE /api/plant/<id>
 ```
 
